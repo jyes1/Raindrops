@@ -1,1 +1,1 @@
-hi mrs gerstein
+In this project, raindrops will fall from the top of the screen. As they get to the bottom of the screen, they will accelerate slightly, and will fade, causing them to look very realistic. When they touch the (moving) catcher, the catcher's radius will increase. But once it reaches a certain raidus, the game will end, and the person will have the option to start over. I'm thinking of having a grey background to give the same gloomy feel of an actual rainy day.
