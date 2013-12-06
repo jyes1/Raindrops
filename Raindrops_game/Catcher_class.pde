@@ -4,12 +4,11 @@ class Catcher {
 
   Catcher() {
     loc = new PVector(mouseX, height-d);
-    d = 30;
+    d = 60;
   }
 
-
   void display() {
-    ellipse(loc.x, loc.y, d, d);
+    rect(loc.x, loc.y, 100, 50);
   }
 
   void update() {
