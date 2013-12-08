@@ -1,22 +1,25 @@
 class Raindrop {
   PVector l, v, acc;
-  float r;
+  float d;
+
   Raindrop() {
-    r=10;
-    l = new PVector(random(r, width-2), 0);
-    v = new PVector (random(-.2, .2), random(1, 2));
-    acc = new PVector (0, .1);
+    d=10;
+    l = new PVector(random(d, width-2), 0);
+    v = new PVector(random(-.2, .2), 0);
+    acc = new PVector (0, .05);
   }
+
   void display() {
-    ellipse(l.x, l.y, r, r);
-    rectMode(CENTER);
+    fill(0, 0, 100);
+    ellipse(l.x, l.y, d, d);
   }
+
   void move() {
     l.add(v);
     v.add(acc);
-    if (l.y>height+r) {
-      v = new PVector (random(-.2, .2), random(1, 2));
-      l = new PVector(random(r, width-2), 0);
+    if (l.y>height+d) {
+      v = new PVector (random(-.2, .2), 0);
+      l = new PVector(random(d, width-2), 0);
     }
   }
 }
