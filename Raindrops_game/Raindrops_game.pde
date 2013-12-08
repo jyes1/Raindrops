@@ -1,9 +1,11 @@
 ArrayList<Raindrop> rain = new ArrayList<Raindrop>();
 Catcher catcher;
+Timer timer;
 void setup() {
   size(500, 500);
   rain.add(new Raindrop());
   catcher = new Catcher();
+  timer = new Timer();
 }
 
 void draw() {
@@ -16,6 +18,7 @@ void draw() {
     r.move();
     r.display();
   }
+  timer.releaseRain();
   catcher.display();
   catcher.move();
   catcher.catchRaindrop(rain);
