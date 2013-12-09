@@ -9,6 +9,7 @@ class Raindrop {
     acc = new PVector (0, .05);
   }
 
+
   void display() {
     fill(0, 0, 100);
     ellipse(l.x, l.y, d, d);
@@ -23,4 +24,3 @@ class Raindrop {
     }
   }
 }
-

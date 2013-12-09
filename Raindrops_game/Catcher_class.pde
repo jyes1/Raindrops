@@ -10,6 +10,7 @@ class Catcher {
     moveSpeed = 3;
     move = new PVector();
   }
+  
 
   void display() {
     fill(255);
@@ -50,4 +51,3 @@ class Catcher {
     }
   }
 }
-
