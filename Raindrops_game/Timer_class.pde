@@ -5,7 +5,6 @@ class Timer {
   Timer() {
     currentTime = millis();
   }
-  
 
   void releaseRain() {
     if (currentTime - oldTime >= 3000) {
@@ -14,4 +13,5 @@ class Timer {
     }
   }
 }
-
+}
+}

@@ -1,14 +1,17 @@
 
-ArrayList<Raindrop> rain = new ArrayList<Raindrop>();
 Catcher catcher;
 Timer timer;
+Cloud cloud;
+Lightning lightning;
+ArrayList <Raindrop> rain = new ArrayList<Raindrop>();
 void setup() {
   size(500, 500);
   rain.add(new Raindrop());
   catcher = new Catcher();
   timer = new Timer();
+  cloud = new Cloud();
+  lightning = new Lightning();
 }
-
 
 void draw() {
   background(0);
@@ -21,4 +24,7 @@ void draw() {
   catcher.display();
   catcher.move();
   catcher.catchRaindrop(rain);
+  cloud.display();
+  lightning.display();
 }
+
