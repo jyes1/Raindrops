@@ -3,28 +3,27 @@ Catcher catcher;
 Timer timer;
 Cloud cloud;
 Lightning lightning;
-ArrayList <Raindrop> rain = new ArrayList<Raindrop>();
+Raindrop[] rain = new Raindrop[20];
 void setup() {
   size(500, 500);
-  rain.add(new Raindrop());
+//  rain.add(new Raindrop());
   catcher = new Catcher();
   timer = new Timer();
-  cloud = new Cloud();
   lightning = new Lightning();
+  cloud = new Cloud();
 }
 
 void draw() {
   background(0);
-  for (int i = rain.size()-1; i >=0; i--) {
-    Raindrop r = rain.get(i);
-    r.move();
-    r.display();
+  for (int i = 0; i >=0; i--) {
+    rain[i].move();
+    rain[i].display();
   }
   timer.releaseRain();
   catcher.display();
   catcher.move();
   catcher.catchRaindrop(rain);
-  cloud.display();
   lightning.display();
+  cloud.display();
 }
 

@@ -12,5 +12,4 @@ class Cloud {
     image(cloud, 300, 20, WidthC, HeightC);
   }
 }
-  
 

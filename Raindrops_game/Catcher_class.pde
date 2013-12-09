@@ -10,7 +10,7 @@ class Catcher {
     moveSpeed = 3;
     move = new PVector();
   }
-  
+
 
   void display() {
     fill(255);
@@ -33,9 +33,9 @@ class Catcher {
   }
 
 
-  void catchRaindrop(ArrayList<Raindrop> rain) {
-    for (int i = rain.size()-1; i >= 0; i--) {
-      Raindrop r = rain.get(i);
+  void catchRaindrop(Raindrop[] rain) {
+    for (int i = 0; i >= 0; i--) {
+//      Raindrop r = rain[].get(i);
       if (loc.dist(r.l) < d/2 + r.d/2) {
         float diff = d-r.d;
         float change;
@@ -43,11 +43,12 @@ class Catcher {
           change = map(diff, 0, d, 3, 0);
         }
         else {
-          change =0;
+          change = 0;
         }
         d+=change;
-        rain.remove(i);
+//        rain[i].remove(i);
       }
     }
   }
 }
+
