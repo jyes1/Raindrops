@@ -5,17 +5,19 @@ class Timer {
   int currentTime = 0;
   int oldTimeR = 0;
   int oldTimeL = 0;
+  int timeLeft;
 
   Timer() {
     currentTime = millis();
     WidthL = 75;
     HeightL = 83;
     lightning = loadImage("lightning-md.png");
+    timeLeft = (30-millis()/1000);
   }
 
   void releaseRain() {
     if (millis() - oldTimeR >= 2000) {
-      index+=3;
+      index+=5;
       oldTimeR = millis();
     }
   }
