@@ -33,21 +33,18 @@ class Catcher {
   }
 
 
-  void catchRaindrop(Raindrop[] rain) {
-    for (int i = 0; i >= 0; i--) {
-//      Raindrop r = rain[].get(i);
-      if (loc.dist(r.l) < d/2 + r.d/2) {
-        float diff = d-r.d;
-        float change;
-        if (diff>=0) {
-          change = map(diff, 0, d, 3, 0);
-        }
-        else {
-          change = 0;
-        }
-        d+=change;
-//        rain[i].remove(i);
+  void catchRaindrop(int i) {
+    if (loc.dist(rain[i].l) < d/2 + rain[i].d/2) {
+      float diff = d-rain[i].d;
+      float change;
+      if (diff>=0) {
+        change = map(diff, 0, d, 3, 0);
+        rain[i].l.x=700;
       }
+      else {
+        change = 0;
+      }
+      d+=change;
     }
   }
 }

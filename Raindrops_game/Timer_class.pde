@@ -7,9 +7,9 @@ class Timer {
   }
 
   void releaseRain() {
-    if (currentTime - oldTime >= 3000) {
-      rain.add(new Raindrop());
-      oldTime = currentTime;
+    if (millis() - oldTime >= 2000) {
+      index+=3;
+      oldTime = millis();
     }
   }
 }
