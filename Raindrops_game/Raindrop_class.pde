@@ -12,7 +12,7 @@ class Raindrop {
 
   void display() {
     fill(0, 0, 255);
-    ellipse(l.x, l.y, d, d);
+    ellipse(l.x, l.y, 2*d/3, d);
   }
 
   void move() {
