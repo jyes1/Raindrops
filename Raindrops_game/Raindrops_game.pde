@@ -1,4 +1,5 @@
 Raindrop[] rain = new Raindrop[100]; 
+PImage c;
 int index;
 Catcher catcher;
 Timer timer;
@@ -20,10 +21,11 @@ void setup() {
   cloud = loadImage("cloud1.png");
   textSize(25);
   textAlign(CENTER);
+  c = loadImage ("rain1.png");
 }
 
 void draw() {
-  background(0);
+  background(c);
 
   if (run) {
     for (int i = 1; i <index; i++) {
@@ -47,7 +49,7 @@ void draw() {
     textSize(25);
     text("GAME OVER \n CLOSE AND RESTART", width/2, height/2);
   }
-  if (millis() > 10000) {
+  if (millis() > 15000) {
     run=false;
   }
 }

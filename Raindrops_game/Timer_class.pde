@@ -8,7 +8,7 @@ class Timer {
   int timeLeft;
 
   Timer() {
-    currentTime = millis();
+    currentTime = millis(); 
     WidthL = 75;
     HeightL = 83;
     lightning = loadImage("lightning-md.png");
