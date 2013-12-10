@@ -32,7 +32,6 @@ class Catcher {
     }
   }
 
-
   void catchRaindrop(int i) {
     if (loc.dist(rain[i].l) < d/2 + rain[i].d/2) {
       float diff = d-rain[i].d;
