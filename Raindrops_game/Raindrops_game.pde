@@ -6,7 +6,7 @@ Timer timer; //creates a timer called timer.
 PImage cloud; //creates a PImage called cloud
 int WidthC; //The width of the cloud
 int HeightC; //the height of the cloud
-boolean run=true; //this creates the 
+boolean run=true; //this creates the game over condition. this means it starts out running
 
 void setup() {
   for (int i = 1; i <rain.length; i++) {
