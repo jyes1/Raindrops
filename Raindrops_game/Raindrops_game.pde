@@ -70,9 +70,11 @@ void draw() {
   }
 }
 
-  void mousePressed() {
-    if (mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h ) {
-      run=true;
-    }
+void mousePressed() {
+  if (mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h ) {
+    timer.oldTimeR = millis();
+    timer.oldTimeL = millis();
+    run=true;
   }
+}
 
