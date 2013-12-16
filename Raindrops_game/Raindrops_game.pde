@@ -9,6 +9,7 @@ int HeightC; //the height of the cloud
 boolean run=false; //this creates the 
 boolean gameOver = false;
 int x, y, w, h;
+int startTime;
 
 void setup() {
   for (int i = 1; i <rain.length; i++) {
@@ -29,6 +30,7 @@ void setup() {
   y = 200;
   w = 300;
   h = 100;
+  startTime = millis();
 }
 
 void draw() {
@@ -41,7 +43,7 @@ void draw() {
       }
       catcher.display(); //this calls on the Catcher class toallow the catcher to be displayed. 
       catcher.move(); //this calls on the Catcher class toallow the catcher to be moved. 
-      text(millis()/1000, 50, 50); //the seconds will be displayed as whole seconds as they count up...
+      text((millis() - startTime)/1000, 50, 50); //the seconds will be displayed as whole seconds as they count up...
       fill(255, 0, 0); //and they will also be red
       timer.releaseRain(); //this calls on the releasing rain from the timer class
       timer.flashLightning(); //this calls on the flashing lightning from the timer class
@@ -74,6 +76,7 @@ void mousePressed() {
   if (mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h ) {
     timer.oldTimeR = millis();
     timer.oldTimeL = millis();
+    startTime = millis();
     run=true;
   }
 }
