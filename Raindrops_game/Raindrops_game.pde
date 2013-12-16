@@ -3,6 +3,7 @@ PImage rainy; //creates a PImage called c
 int index; //creates an integer called index
 Catcher catcher; //creates a Catcher called catcher. i keep it catcher for simplicity and because i can easily recognize the upercase vs. lowercase differentiation. 
 Timer timer; //creates a timer called timer.
+Scoreboard scoreboard;
 PImage cloud; //creates a PImage called cloud
 int WidthC; //The width of the cloud
 int HeightC; //the height of the cloud
@@ -10,6 +11,7 @@ boolean run=false; //this creates the
 boolean gameOver = false;
 int x, y, w, h;
 int startTime;
+int score;
 
 void setup() {
   for (int i = 1; i <rain.length; i++) {
@@ -18,6 +20,7 @@ void setup() {
   size(500, 500); //size of the sketch. it is the same size as the picture of the rain.
   catcher = new Catcher(); //creates a new Catcher named catcher
   timer = new Timer(); //creates a new Timer named timer
+  scoreboard = new Scoreboard();
   index = 1; //sets the index to 1
   WidthC = 175; //defines width of cloud 
   HeightC = 111; //defines hight of cloud
@@ -31,6 +34,7 @@ void setup() {
   w = 300;
   h = 100;
   startTime = millis();
+  score = 0;
 }
 
 void draw() {
@@ -43,8 +47,9 @@ void draw() {
       }
       catcher.display(); //this calls on the Catcher class toallow the catcher to be displayed. 
       catcher.move(); //this calls on the Catcher class toallow the catcher to be moved. 
+            fill(255, 0, 0); //and they will also be red
       text((millis() - startTime)/1000, 50, 50); //the seconds will be displayed as whole seconds as they count up...
-      fill(255, 0, 0); //and they will also be red
+      scoreboard.display();
       timer.releaseRain(); //this calls on the releasing rain from the timer class
       timer.flashLightning(); //this calls on the flashing lightning from the timer class
       image(cloud, 300, 20, WidthC, HeightC); //this creates the image of the cloud. the lightning goes before this picture so it slashes behind the cloud.
