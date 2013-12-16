@@ -34,7 +34,6 @@ void setup() {
   w = 300;
   h = 100;
   startTime = millis();
-  score = 0;
 }
 
 void draw() {
@@ -47,7 +46,7 @@ void draw() {
       }
       catcher.display(); //this calls on the Catcher class toallow the catcher to be displayed. 
       catcher.move(); //this calls on the Catcher class toallow the catcher to be moved. 
-            fill(255, 0, 0); //and they will also be red
+      fill(255, 0, 0); //and they will also be red
       text((millis() - startTime)/1000, 50, 50); //the seconds will be displayed as whole seconds as they count up...
       scoreboard.display();
       timer.releaseRain(); //this calls on the releasing rain from the timer class
