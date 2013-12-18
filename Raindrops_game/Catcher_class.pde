@@ -36,15 +36,16 @@ class Catcher {
       float diff = d-rain[i].d; //these variables are created
       float change;
       if (diff>=0) { //when the difference is greater than zero
-        change = map(diff, 0, d, 3, 0); //change is equal to that
+        change = map(diff, 0, d, 10, 0); //change is equal to that
         rain[i].l.x=700; //this basically moves the raindrop out of view of the sketch meaning that it's not really gone, just out of the way
-        score++;
+        caught++;
       }
       else { //otherwise...
         change = 0; //there will be no change
       }
       d+=change; //the diameter will increase at the rate of change
     }
+
   }
 }
 

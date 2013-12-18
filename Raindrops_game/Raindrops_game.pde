@@ -11,7 +11,8 @@ boolean run=false; //this creates the
 boolean gameOver = false;
 int x, y, w, h;
 int startTime;
-int score;
+int caught;
+int missed;
 
 void setup() {
   for (int i = 1; i <rain.length; i++) {
@@ -27,8 +28,8 @@ void setup() {
   cloud = loadImage("cloud1.png"); //associates the "cloud" with the actual picture
   textSize(25); //makes the size of the text bigger
   textAlign(CENTER); //alligns the text in the center instead of top left corner.
-  rainy = loadImage ("rain1.png"); //loads the image by which rainy is defined by. 
-  strokeWeight(2); // makes lines areker and more visible
+  rainy = loadImage ("596578-1440x900-[DesktopNexus.com].jpg"); //loads the image by which rainy is defined by. 
+  strokeWeight(1); // makes lines areker and more visible
   x = 100;
   y = 200;
   w = 300;
@@ -46,9 +47,12 @@ void draw() {
       }
       catcher.display(); //this calls on the Catcher class toallow the catcher to be displayed. 
       catcher.move(); //this calls on the Catcher class toallow the catcher to be moved. 
+      textSize(40);
       fill(255, 0, 0); //and they will also be red
-      text((millis() - startTime)/1000, 50, 50); //the seconds will be displayed as whole seconds as they count up...
-      scoreboard.display();
+      text((millis() - startTime)/1000, 50, 75); //the seconds will be displayed as whole seconds as they count up...
+      textSize(25);
+      scoreboard.displayCaught();
+      scoreboard.displayMissed();
       timer.releaseRain(); //this calls on the releasing rain from the timer class
       timer.flashLightning(); //this calls on the flashing lightning from the timer class
       image(cloud, 300, 20, WidthC, HeightC); //this creates the image of the cloud. the lightning goes before this picture so it slashes behind the cloud.
