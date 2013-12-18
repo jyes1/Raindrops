@@ -5,9 +5,9 @@ class Catcher {
   PVector move;
 
   Catcher() {
-    loc = new PVector(width/2, 4*height/5); //loction of the catcher
+    loc = new PVector(width/2, 6*height/7); //loction of the catcher
     d = 50; //diameter of the catcher
-    moveSpeed = 3; //the speed at which the catcher moves
+    moveSpeed = 4; //the speed at which the catcher moves
     move = new PVector(); //defines the move PVector as a new pvector
   }
 

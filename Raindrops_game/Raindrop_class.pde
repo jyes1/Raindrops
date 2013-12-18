@@ -5,7 +5,7 @@ class Raindrop {
   Raindrop() {
     d=10; //the diameter of the raindrop
     l = new PVector(random(0, 500), random(-10, 0)); //creates a location for each raindrop to begin at. it is random to an extent.
-    v = new PVector(random(-.5, .5), 0); //the velocity vector for the location value. random to an extent.
+    v = new PVector(random(-.3, .3), 0); //the velocity vector for the location value. random to an extent.
     acc = new PVector (0, .06); //this accelerates each raindrop so it's speed appears to increase as it reaches the bottom.
   }
 
