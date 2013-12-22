@@ -1,91 +1,92 @@
-Raindrop[] rain = new Raindrop[100]; 
-PImage rainy; //creates a PImage called c
-int index; //creates an integer called index
-Catcher catcher; //creates a Catcher called catcher. i keep it catcher for simplicity and because i can easily recognize the upercase vs. lowercase differentiation. 
-Timer timer; //creates a timer called timer.
-Scoreboard scoreboard;
-PImage cloud; //creates a PImage called cloud
-int WidthC; //The width of the cloud
-int HeightC; //the height of the cloud
-boolean run=false; //this creates the 
-boolean gameOver = false;
-int x, y, w, h;
-int startTime;
-int caught;
-int missed;
+Raindrop[] rain = new Raindrop[500]; //this gives amount of raindrops that can possibly fall. If you catch 451 before missing 50, (which is highly unlikely) the game won't work. I don't count as a glitch because i guarantee this will not happen
+PImage rainy; //creates PImage called c
+int index; //creates integer called index
+Catcher catcher; //creates a Catcher called catcher. I keep it catcher for simplicity and because I can easily recognize the upercase vs. lowercase differentiation
+Timer timer; //creates Timer called timer
+Scoreboard scoreboard; //creates Scoreboard called scoreboard
+PImage cloud; //creates PImage called cloud
+int WidthC; //width of the cloud
+int HeightC; //height of the cloud
+boolean gameOver = false; //game over function. it starts out as being false and is only made true when certain things happen
+boolean run=false; //this creates the boolean that will make practically the whole program run
+int x, y, w, h; //declares all the parameters for what will be the game over box
+int startTime; //declaring variable startTime which will make everything start only once the start box at beginning is clicked
+int caught; //declaring variable caught which is used in Catcher class and Scoreboard class
+int missed; //declaring variable missed which is used in Catcher class and Scoreboard class
 
 void setup() {
-  for (int i = 1; i <rain.length; i++) {
-    rain[i] = new Raindrop();
+  for (int i = 1; i <rain.length; i++) { //for statement which will add raindrops
+    rain[i] = new Raindrop(); //declaring the previously defined rain
   }
-  size(500, 500); //size of the sketch. it is the same size as the picture of the rain.
-  catcher = new Catcher(); //creates a new Catcher named catcher
-  timer = new Timer(); //creates a new Timer named timer
-  scoreboard = new Scoreboard();
-  index = 1; //sets the index to 1
+  size(500, 500); //size of the sketch. It is the same size as the picture of the rain (and must be)
+  catcher = new Catcher(); //creates a new Catcher named catcher. Declares what a catcher is
+  timer = new Timer(); //creates a new Timer named timer. Declares what a timer is
+  scoreboard = new Scoreboard(); //creates a new Scoreboard named scoreboard. Declares what a scoreboard is
+  index = 1; //sets the index to 1. It must be 1 so that in a later for statement in the void draw section, i = 0. SEE BELOW
   WidthC = 175; //defines width of cloud 
   HeightC = 111; //defines hight of cloud
   cloud = loadImage("cloud1.png"); //associates the "cloud" with the actual picture
-  textSize(25); //makes the size of the text bigger
+  textSize(25); //makes the size of the text bigger. Meant to be the text size for the entire drawing unless otherwise declared
   textAlign(CENTER); //alligns the text in the center instead of top left corner.
-  rainy = loadImage ("596578-1440x900-[DesktopNexus.com].jpg"); //loads the image by which rainy is defined by. 
-  strokeWeight(1); // makes lines areker and more visible
-  x = 100;
-  y = 200;
-  w = 300;
-  h = 100;
-  startTime = millis();
+  rainy = loadImage ("596578-1440x900-[DesktopNexus.com].jpg"); //loads the image by which rainy is defined by
+  strokeWeight(1); // makes lines clearer and more visible
+  x = 100; //declares the x coordinate of the game over rectangle
+  y = 200; //declares the y coordinate of the game over rectangle
+  w = 300; //declares the width of the game over rectangle
+  h = 100; //declares the height of the game over rectangle
+  startTime = millis(); //sets the previously declared startTime to millis() or the current time (beginning after start box is clicked)
 }
 
 void draw() {
   background(rainy); //background is equal to the picture of rain
   if (!gameOver) {
-    if (run) { //if the program runs... (emost other things are included here)
-      for (int i = 1; i <index; i++) { //for the conditions where i is less than the index...
+    if (run) { //if the program runs... (most other things are included here)
+      for (int i = 1; i <index; i++) { //SEE ABOVE for the conditions where i is less than the index...
         rain[i].move(); //the rain will move
         rain[i].display(); //the rain will display
       }
-      catcher.display(); //this calls on the Catcher class toallow the catcher to be displayed. 
-      catcher.move(); //this calls on the Catcher class toallow the catcher to be moved. 
-      textSize(40);
-      fill(255, 0, 0); //and they will also be red
-      text((millis() - startTime)/1000, 50, 75); //the seconds will be displayed as whole seconds as they count up...
-      textSize(25);
-      scoreboard.displayCaught();
-      scoreboard.displayMissed();
+      catcher.display(); //this calls on the Catcher class toallow the catcher to be displayed
+      catcher.move(); //this calls on the Catcher class toallow the catcher to be moved 
+      textSize(40); //sets the text size to 40 for the timer so it is more noticable
+      fill(255, 0, 0); //sets timer to red
+      text((millis() - startTime)/1000, 50, 75); //displays time as whole seconds as they count up. begins after start is pressed
+      textSize(25); //sets text size back to 25 so the only text that is not 45 is the timer
+      scoreboard.displayCaught(); //calls on the Scoreboard class to display the amount that are caught
+      scoreboard.displayMissed(); //calls on the Scoreboard class to display the amount that are caught
       timer.releaseRain(); //this calls on the releasing rain from the timer class
       timer.flashLightning(); //this calls on the flashing lightning from the timer class
       image(cloud, 300, 20, WidthC, HeightC); //this creates the image of the cloud. the lightning goes before this picture so it slashes behind the cloud.
-      for (int i = 1; i <index; i++) { //under these circumstances, where the i is less than the previously defined index...
-        catcher.catchRaindrop(i); //the catcher will catch the raindrop
+      for (int i = 1; i <index; i++) { //under these circumstances, where the i can be determined to be 0, more i is added
+        catcher.catchRaindrop(i); //this dcalls on the catchRaindrop function from the catcher class
       }
     }
   }
 
-
-  if (!run) { //if it's not running...
-    fill(255, 0, 0);
-    rect(100, 200, 300, 100);
-    fill(0);
-    text("Click In Box To Start", width/2, height/2);
+  if (!run) { //if it's not running (AKA if it hasn't been started yet...)
+    fill(255, 0, 0); //there is a red...
+    rect(100, 200, 300, 100); //box of these parameters.
+    fill(0); //and also with a fill of zero...
+    text("Click In Box To Start", width/2, height/2); //there is text that says this
   }
 
-  if (missed >= 50) { //if the program has run for more than 20 seconds...
-    gameOver=true; //it will stop running
-    background(255); //there will be a white background... textSize(25); //and in size 25 text it will say...
-    fill(255, 0, 0);
-    rect(x, y, w, h);
-    fill(0);
-    text("GAME OVER \n CLOSE AND RESTART", width/2, height/2); //"GAME OVER CLOSE AND RESTART" ON TWO SEPERATE LINES AND IN THE CENTER OF THE SCREENfill(255);
+  if (missed > 50) { //if the player misses more than 50 raindrops
+    gameOver=true; //gameOver becomes true and the game ends. Game over is comprised of...
+    background(255); //a white background... 
+    fill(255, 0, 0); //and a red...
+    rect(x, y, w, h); //rectangle with previously defined parameters.
+    fill(0); //in addition there will be in black text...
+    text("GAME OVER \n CLOSE AND RESTART", width/2, height/2); //this text will say: "GAME OVER CLOSE AND RESTART" ON TWO SEPERATE LINES AND IN THE CENTER OF THE SCREENfill(255);
+    scoreboard.displayCaught(); //it will also display those that you caught... 
+    scoreboard.displayMissed(); //and those that you missed
   }
 }
 
-void mousePressed() {
-  if (mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h ) {
-    timer.oldTimeR = millis();
-    timer.oldTimeL = millis();
-    startTime = millis();
-    run=true;
+void mousePressed() { //this is what initiates the game
+  if (mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+h ) { //if you press the mouse within the start box
+    timer.oldTimeR = millis(); //the timer for the raindrops starts
+    timer.oldTimeL = millis(); //the timer for the lightning starts
+    startTime = millis(); //the clock begins counting
+    run=true; //and run becomes true which means the game starts
   }
 }
 

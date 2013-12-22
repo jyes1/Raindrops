@@ -1,6 +1,6 @@
 class Raindrop {
-  PVector l, v, acc;
-  float d;
+  PVector l, v, acc; //declares location velocity and acceleration
+  float d; //declares d, which will be diameter
 
   Raindrop() {
     d=10; //the diameter of the raindrop
@@ -9,10 +9,9 @@ class Raindrop {
     acc = new PVector (0, .06); //this accelerates each raindrop so it's speed appears to increase as it reaches the bottom.
   }
 
-
   void display() {
     fill(0, 100, 255); //color of raindrop
-    ellipse(l.x, l.y, 2*d/3, d); //this is the actual raindrop
+    ellipse(l.x, l.y, 2*d/3, d); //this is the actual raindrop's location and dimensions
   }
 
   void move() {

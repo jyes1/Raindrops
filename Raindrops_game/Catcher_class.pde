@@ -11,7 +11,6 @@ class Catcher {
     move = new PVector(); //defines the move PVector as a new pvector
   }
 
-
   void display() {
     fill(255); //the fill of the catcher
     ellipse(loc.x, loc.y, d, d); //the actual catcher.
@@ -36,9 +35,9 @@ class Catcher {
       float diff = d- rain[i].d; //these variables are created
       float change;
       if (diff >= 0) { //when the difference is greater than zero
+        caught++;
         change = map(diff, 0, d, 10, 0); //change is equal to that
         rain[i].l.x=700; //this basically moves the raindrop out of view of the sketch meaning that it's not really gone, just out of the way
-        caught++;
         missed = index - caught -1; //since index =1
       }
       else {
@@ -48,4 +47,3 @@ class Catcher {
     }
   }
 }
-
