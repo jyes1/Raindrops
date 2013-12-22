@@ -20,3 +20,5 @@ class Raindrop {
     v.add(acc); //this calls on the previously defined v PVector to add it's acceleration to velocity in order to accelerate it.
   }
 }
+
+

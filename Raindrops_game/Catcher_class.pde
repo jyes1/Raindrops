@@ -33,19 +33,19 @@ class Catcher {
 
   void catchRaindrop(int i) {
     if (loc.dist(rain[i].l) < d/2 + rain[i].d/2) { //if the raindrop is  less than the diameter of the catcher plus the diameter of the raindrop...
-      float diff = d-rain[i].d; //these variables are created
+      float diff = d- rain[i].d; //these variables are created
       float change;
-      if (diff>=0) { //when the difference is greater than zero
+      if (diff >= 0) { //when the difference is greater than zero
         change = map(diff, 0, d, 10, 0); //change is equal to that
         rain[i].l.x=700; //this basically moves the raindrop out of view of the sketch meaning that it's not really gone, just out of the way
         caught++;
+        missed = index - caught -1; //since index =1
       }
-      else { //otherwise...
-        change = 0; //there will be no change
+      else {
+        change = 0;
       }
       d+=change; //the diameter will increase at the rate of change
     }
-
   }
 }
 
