@@ -4,7 +4,7 @@ class Timer {
   int HeightL; //Height of lightning
   int oldTimeR = 0; //declares the oldTime that the rain is released at
   int oldTimeL = 0; //declares the oldTime for the display of the lightning
-  float currentTime = 0; //declares the current time since the game was started
+  int currentTime = 0; //declares the current time since the game was started
 
   Timer() {
     WidthL = 75; //defines width of lightning

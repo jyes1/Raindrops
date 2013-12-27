@@ -45,17 +45,14 @@ void draw() {
         rain[i].move(); //the rain will move
         rain[i].display(); //the rain will display
       }
+      timer.releaseRain(); //this calls on the releasing rain from the timer class
+      timer.flashLightning(); //this calls on the flashing lightning from the timer class
       catcher.display(); //this calls on the Catcher class to allow the catcher to be displayed
       catcher.move(); //this calls on the Catcher class to allow the catcher to be moved 
-      textSize(40); //sets the text size to 40 for the timer so it is more noticable
-      fill(255, 0, 0); //sets timer to red
-      text((millis() - startTime)/1000, 50, 75); //displays time as whole seconds as they count up. begins after start is pressed
-      textSize(25); //sets text size back to 25 so the only text that is not 45 is the timer
+      timer.clock(); //this calls on the clock class to draw the clock in void draw. this is needed for the time to be properly displayed at the end of the game.
       missed = (index - caught - 6); //this displays the amount missed. since 5 are released every 2 seconds missed can be written as index (5) minus the amount caught, minus 1 since index=1 already. An additional minus 5 has to be added to account for the 5 that will be added automatically since the index increases by 5 every 2 secs. 
       scoreboard.displayCaught(); //calls on the Scoreboard class to display the amount that are caught
       scoreboard.displayMissed(); //calls on the Scoreboard class to display the amount that are caught
-      timer.releaseRain(); //this calls on the releasing rain from the timer class
-      timer.flashLightning(); //this calls on the flashing lightning from the timer class
       image(cloud, 300, 20, WidthC, HeightC); //this creates the image of the cloud. the lightning goes before this picture so it slashes behind the cloud.
       for (int i = 1; i <index; i++) { //under these circumstances, where the i can be determined to be 0, more i is added
         catcher.catchRaindrop(i); //this dcalls on the catchRaindrop function from the catcher class
