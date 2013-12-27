@@ -39,14 +39,14 @@ void setup() {
 
 void draw() {
   background(rainy); //background is equal to the picture of rain
-  if (!gameOver) {
+  if (!gameOver) { //if game over is now true...
     if (run) { //if the program runs... (most other things are included here)
       for (int i = 1; i <index; i++) { //SEE ABOVE for the conditions where i is less than the index...
         rain[i].move(); //the rain will move
         rain[i].display(); //the rain will display
       }
-      catcher.display(); //this calls on the Catcher class toallow the catcher to be displayed
-      catcher.move(); //this calls on the Catcher class toallow the catcher to be moved 
+      catcher.display(); //this calls on the Catcher class to allow the catcher to be displayed
+      catcher.move(); //this calls on the Catcher class to allow the catcher to be moved 
       textSize(40); //sets the text size to 40 for the timer so it is more noticable
       fill(255, 0, 0); //sets timer to red
       text((millis() - startTime)/1000, 50, 75); //displays time as whole seconds as they count up. begins after start is pressed
@@ -79,6 +79,10 @@ void draw() {
     text("GAME OVER \n CLOSE AND RESTART", width/2, height/2); //this text will say: "GAME OVER CLOSE AND RESTART" ON TWO SEPERATE LINES AND IN THE CENTER OF THE SCREENfill(255);
     scoreboard.displayCaught(); //it will also display those that you caught... 
     scoreboard.displayMissed(); //and those that you missed
+    textSize(40); //sets the text size to 40 for the timer so it is more noticable
+    fill(255, 0, 0); //sets timer to red
+    text(timer.currentTime, 50, 75); //displays time as whole seconds as they count up. begins after start is pressed
+    textSize(25); //sets text size back to 25 so the only text that is not 45 is the timer. The above 3 and this command display the timer in the gameOver screen while not allowing it to continue counting. it takes a snapshot of the time it was before the game ended.
   }
 }
 
