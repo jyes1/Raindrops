@@ -31,7 +31,6 @@ class Timer {
     text(currentTime, 50, 75); //displays time as whole seconds as they count up. begins after start is pressed
     textSize(25); //sets text size back to 25 so the only text that is not 45 is the timer
     currentTime = (millis() - startTime)/1000; //displays the time since the game has started. displays in whole seconds.
-
   }
 }
 

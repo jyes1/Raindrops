@@ -47,9 +47,9 @@ void draw() {
       }
       timer.releaseRain(); //this calls on the releasing rain from the timer class
       timer.flashLightning(); //this calls on the flashing lightning from the timer class
+      timer.clock(); //this calls on the clock class to draw the clock in void draw. this is needed for the time to be properly displayed at the end of the game.
       catcher.display(); //this calls on the Catcher class to allow the catcher to be displayed
       catcher.move(); //this calls on the Catcher class to allow the catcher to be moved 
-      timer.clock(); //this calls on the clock class to draw the clock in void draw. this is needed for the time to be properly displayed at the end of the game.
       missed = (index - caught - 6); //this displays the amount missed. since 5 are released every 2 seconds missed can be written as index (5) minus the amount caught, minus 1 since index=1 already. An additional minus 5 has to be added to account for the 5 that will be added automatically since the index increases by 5 every 2 secs. 
       scoreboard.displayCaught(); //calls on the Scoreboard class to display the amount that are caught
       scoreboard.displayMissed(); //calls on the Scoreboard class to display the amount that are caught

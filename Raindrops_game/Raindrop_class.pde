@@ -10,7 +10,7 @@ class Raindrop {
   }
 
   void display() {
-    fill(0, 100, 255); //color of raindrop
+    fill(0, 0, l.y+100); //color of raindrop. it becomes a lighter shade of blue as it gets closer to the bottom
     ellipse(l.x, l.y, 2*d/3, d); //this is the actual raindrop's location and dimensions
   }
 
@@ -19,5 +19,3 @@ class Raindrop {
     v.add(acc); //this calls on the previously defined v PVector to add it's acceleration to velocity in order to accelerate it.
   }
 }
-
-
