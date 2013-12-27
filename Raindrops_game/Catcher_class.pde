@@ -35,10 +35,9 @@ class Catcher {
       float diff = d- rain[i].d; //these variables are created
       float change; //declares the variable change
       if (diff >= 0) { //when the difference is greater than zero (when the catcher catches something)
-        caught++; //the amount caught increases
         change = map(diff, 0, d, 10, 0); //increases diameter of the catcher when it catches something. right now it increases by 10. Increase 10 for a bigger increase
         rain[i].l.x=700; //this moves the raindrop out of view of the sketch meaning that it's not really gone, just out of the way
-        missed = index - caught -1; //this displayed the amount missed. since 5 are released every 2 seconds missed can be written as index (5) minus the amount caught, minus 1 since index=1 already 
+        caught++; //the amount caught increases
       }
       else {
         change = 0; //if the catcher doesn't catch something it doesn't grow
@@ -47,3 +46,4 @@ class Catcher {
     }
   }
 }
+

@@ -31,7 +31,7 @@ void setup() {
   rainy = loadImage ("596578-1440x900-[DesktopNexus.com].jpg"); //loads the image by which rainy is defined by
   strokeWeight(1); // makes lines clearer and more visible
   x = 100; //declares the x coordinate of the game over rectangle
-  y = 200; //declares the y coordinate of the game over rectangle
+  y = 215; //declares the y coordinate of the game over rectangle
   w = 300; //declares the width of the game over rectangle
   h = 100; //declares the height of the game over rectangle
   startTime = millis(); //sets the previously declared startTime to millis() or the current time (beginning after start box is clicked)
@@ -51,6 +51,7 @@ void draw() {
       fill(255, 0, 0); //sets timer to red
       text((millis() - startTime)/1000, 50, 75); //displays time as whole seconds as they count up. begins after start is pressed
       textSize(25); //sets text size back to 25 so the only text that is not 45 is the timer
+      missed = (index - caught - 6); //this displays the amount missed. since 5 are released every 2 seconds missed can be written as index (5) minus the amount caught, minus 1 since index=1 already. An additional minus 5 has to be added to account for the 5 that will be added automatically since the index increases by 5 every 2 secs. 
       scoreboard.displayCaught(); //calls on the Scoreboard class to display the amount that are caught
       scoreboard.displayMissed(); //calls on the Scoreboard class to display the amount that are caught
       timer.releaseRain(); //this calls on the releasing rain from the timer class
@@ -64,12 +65,12 @@ void draw() {
 
   if (!run) { //if it's not running (AKA if it hasn't been started yet...)
     fill(255, 0, 0); //there is a red...
-    rect(100, 200, 300, 100); //box of these parameters.
+    rect(100, 192.5, 300, 100); //box of these parameters.
     fill(0); //and also with a fill of zero...
     text("Click In Box To Start", width/2, height/2); //there is text that says this
   }
 
-  if (missed > 50) { //if the player misses more than 50 raindrops
+  if (missed > 49) { //if the player misses more than 50 raindrops
     gameOver=true; //gameOver becomes true and the game ends. Game over is comprised of...
     background(255); //a white background... 
     fill(255, 0, 0); //and a red...
