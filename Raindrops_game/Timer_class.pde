@@ -25,6 +25,7 @@ class Timer {
       oldTimeL = millis(); //...and old time will be set back to millis() effectively restarting the cycle
     }
   }
+  
   void clock() {
     textSize(40); //sets the text size to 40 for the timer so it is more noticable
     fill(255, 0, 0); //sets timer to red
