@@ -50,7 +50,7 @@ void draw() {
       timer.clock(); //this calls on the clock class to draw the clock in void draw. this is needed for the time to be properly displayed at the end of the game.
       catcher.display(); //this calls on the Catcher class to allow the catcher to be displayed
       catcher.move(); //this calls on the Catcher class to allow the catcher to be moved 
-      missed = (index - caught - 6); //this displays the amount missed. since 5 are released every 2 seconds missed can be written as index (5) minus the amount caught, minus 1 since index=1 already. An additional minus 5 has to be added to account for the 5 that will be added automatically since the index increases by 5 every 2 secs. 
+      missed = (index - caught - 6); //displays the amount missed. since 5 are released every 2 seconds, missed is written as index (5) minus the amount caught, minus 1 since index=1 already. An additional minus 5 must be added to account for the 5 that'll be added automatically since index increases by 5 every 2 secs. 
       scoreboard.displayCaught(); //calls on the Scoreboard class to display the amount that are caught
       scoreboard.displayMissed(); //calls on the Scoreboard class to display the amount that are caught
       image(cloud, 300, 20, WidthC, HeightC); //this creates the image of the cloud. the lightning goes before this picture so it slashes behind the cloud.
@@ -79,7 +79,7 @@ void draw() {
     textSize(40); //sets the text size to 40 for the timer so it is more noticable
     fill(255, 0, 0); //sets timer to red
     text(timer.currentTime, 50, 75); //displays time as whole seconds as they count up. begins after start is pressed
-    textSize(25); //sets text size back to 25 so the only text that is not 45 is the timer. The above 3 and this command display the timer in the gameOver screen while not allowing it to continue counting. it takes a snapshot of the time it was before the game ended.
+    textSize(25); //sets text size back to 25 so the only text that is not 45 is the timer. The above 3 and this command display the timer in the gameOver screen while not allowing it to continue counting.
   }
 }
 
