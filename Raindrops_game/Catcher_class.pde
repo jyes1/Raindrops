@@ -12,7 +12,7 @@ class Catcher {
   }
 
   void display() {
-    fill(255); //the fill of the catcher
+    fill(160, 82, 45); //the fill of the catcher. it is brown
     ellipse(loc.x, loc.y, d, d); //the actual catcher.
   }
 
@@ -35,7 +35,7 @@ class Catcher {
       float diff = d- rain[i].d; //these variables are created
       float change; //declares the variable change
       if (diff >= 0) { //when the difference is greater than zero (when the catcher catches something)
-        change = map(diff, 0, d, 10, 0); //increases diameter of the catcher when it catches something. right now it increases by 10. Increase 10 for a bigger increase
+        change = map(diff, 0, d, 10, 0); //increases diameter of the catcher when it catches something. right now it increases by 10. Increase 10 for a bigger radius increase
         rain[i].l.x=700; //this moves the raindrop out of view of the sketch meaning that it's not really gone, just out of the way
         caught++; //the amount caught increases
       }

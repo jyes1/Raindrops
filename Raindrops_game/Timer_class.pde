@@ -1,5 +1,5 @@
 class Timer {
-  PImage lightning; 
+  PImage lightning; //creates a PImage called lightning
   int WidthL;//width of Lightning
   int HeightL; //Height of lightning
   int oldTimeR = 0; //declares the oldTime that the rain is released at
@@ -14,7 +14,7 @@ class Timer {
 
   void releaseRain() { //makes more rain falls if...
     if (millis() - oldTimeR >= 2000) { //the current time - the old time is about 2000 ms or 2 seconds
-      index+=5; //index which was defined in raindrops_game in this scenario represents the amount of raindrops added each 2 seconds
+      index+=5; //index which was defined in in the game tab represents the amount of raindrops added every 2 seconds
       oldTimeR = millis(); //after the 5 raindrops are added, oldtime is set back to zero, which restarts the cycle
     }
   }
