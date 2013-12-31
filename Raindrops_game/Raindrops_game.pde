@@ -7,8 +7,8 @@ Scoreboard scoreboard; //creates Scoreboard called scoreboard
 PImage cloud; //creates PImage called cloud
 int WidthC; //width of the cloud
 int HeightC; //height of the cloud
-boolean gameOver = false; //game over function. it starts out as being false and is only made true when certain things happen
 boolean run=false; //this creates the boolean that will make practically the whole program run
+boolean gameOver = false; //game over function. it starts out as being false and is only made true when certain things happen
 int x, y, w, h; //declares all the parameters for what will be the game over box
 int startTime; //declaring variable startTime which will make everything start only once the start box at beginning is clicked
 int caught; //declaring variable caught which is used in Catcher class and Scoreboard class
@@ -39,7 +39,7 @@ void setup() {
 
 void draw() {
   background(rainy); //background is equal to the picture of rain
-  if (!gameOver) { //if game over is now true...
+  if (!gameOver) { //if game over is not true...
     if (run) { //if the program runs... (most other things are included here)
       for (int i = 1; i <index; i++) { //for the conditions where i is less than the index...
         rain[i].move(); //the rain will move
